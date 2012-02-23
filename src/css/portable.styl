@@ -1,13 +1,109 @@
 @import 'nib'
 
 global-reset()
+reset-html5()
+
+vcenter()
+    position absolute
+    left 0
+    right 0
+    top: 50%
+    transform translate(0, -50%)
 
 @page {
     margin: 0px;
 }
 
+html {
+    margin: 0px auto;
+}
+
 .portable {
     section {
-        page-break-after: always;
+        page-break-after always
+        height 625px
+        position relative
+        padding 25px
+        overflow hidden
+        
+        & > p, pre, ul, blockquote {
+            font-size: 1.5em;
+        }
+    }
+        
+    h1 {
+        text-align: center;
+        font-size: 4.5em;
+        margin 0 35px
+        vcenter()
+    }
+    
+    h2 {
+      font-size: 2.25em;
+      font-weight: bold;
+      padding-top: .5em;
+      margin: 0 0 .66666em 0;
+    }
+    
+    h3 {
+      font-size: 1.4375em;
+      font-weight: bold;
+      margin-bottom: .30435em;
+    }
+    
+    p, blockquote, pre, ul {
+        margin-bottom: 0.7em;
+        line-height: 1.3em;
+    }
+    
+    
+    blockquote {
+        padding: 0 2em;
+        border-left: 1px solid #333;
+    }
+    
+    strong, b {
+        font-weight: bold;
+    }
+    
+    em, i {
+        font-style: italic;
+    }
+    
+    pre, code {
+        font-family monospace
+        overflow hidden
+    }
+    
+    pre > code {
+        padding 15px
+    }
+}
+
+@media screen {
+    .portable {
+        section {
+            border-bottom: 1px solid black;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .portable {
+        section {
+            height auto
+        }
+        
+        h1 {
+            position relative
+            top 0
+            transform: translate(0)
+            margin 0 10px
+            font-size 3em
+        }
+        
+        img {
+            max-width 100%
+        }
     }
 }
